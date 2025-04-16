@@ -45,7 +45,7 @@ async def format_helper_text(lng, helper_key: str, text: str) -> str:
     def _cmd(key):
         return " ".join(f"/{cmd}" for cmd in _[key])
 
-    if helper_key == "Auth":
+    if helper_key == "🎧 ᴏʏɴᴀᴛᴍᴀ ᴋᴏᴍᴜᴛʟᴀʀɪ":
         return text.format(
             _cmd("AUTH_COMMAND"), _cmd("UNAUTH_COMMAND"), _cmd("AUTHUSERS_COMMAND")
         )
@@ -63,7 +63,7 @@ async def format_helper_text(lng, helper_key: str, text: str) -> str:
             _cmd("REBOOT_COMMAND"),
             _cmd("LOOP_COMMAND"),
         )
-    elif helper_key == "Active":
+    elif helper_key == "ʙᴏᴛ ᴋᴏᴍᴜᴛʟᴀʀɪ 🤖":
         return text.format(
             _cmd("ACTIVEVC_COMMAND"),
             _cmd("ACTIVEVIDEO_COMMAND"),
@@ -169,8 +169,8 @@ async def paginate_modules(page_n, chat_id: int, close: bool = False):
             ),
         ),
         EqInlineKeyboardButton(
-            "close" if close else "Back",
-            callback_data="close" if close else "settingsback_helper",
+            "💣 ᴋᴀᴘᴀᴛ" if close else "🔙 ɢᴇʀɪ",
+            callback_data="💣 ᴋᴀᴘᴀᴛ" if close else "settingsback_helper",
         ),
         EqInlineKeyboardButton(
             "❯",
@@ -186,8 +186,8 @@ async def paginate_modules(page_n, chat_id: int, close: bool = False):
         pairs.append(
             [
                 EqInlineKeyboardButton(
-                    "close" if close else "Back",
-                    callback_data="close" if close else "settingsback_helper",
+                    "💣 ᴋᴀᴘᴀᴛ" if close else "🔙 ɢᴇʀɪ",
+                    callback_data="💣 ᴋᴀᴘᴀᴛ" if close else "settingsback_helper",
                 )
             ]
         )
@@ -269,10 +269,10 @@ async def help_button(client, query):
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ Back",
+                        text="🔙 ɢᴇʀɪ",
                         callback_data=f"help_prev({prev_page_num},{int(close)})",
                     ),
-                    InlineKeyboardButton(text="🔄 Close", callback_data="close"),
+                    InlineKeyboardButton(text="💣 ᴋᴀᴘᴀᴛ", callback_data="close"),
                 ],
             ]
         )
