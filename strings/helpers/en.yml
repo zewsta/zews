@@ -1,4 +1,4 @@
-Auth: |
+Oynatma Komutları: |
   <b>Auth Users can use Admin commands without admin rights in your chat.</b>
 
   <b>✧ </b> [Username] - Add a user to AUTH LIST of the Group.
@@ -7,26 +7,7 @@ Auth: |
 
   <b>✧ </b> - Check AUTH LIST of the Group.
 
-Admin: |
-  <b>c stands for channel play</b>
-
-  <b>✧ {0}</b> - Pause the playing music.
-  <b>✧ {1}</b> - Resume the paused music.
-  <b>✧ {2}</b> - Mute the playing music.
-  <b>✧ {3}</b> - Unmute the muted music.
-  <b>✧ {4}</b> - Skip the current playing music.
-  <b>✧ {5}</b> - Stop the playing music.
-  <b>✧ {6}</b> - Randomly shuffle the queued playlist/songs.
-  <b>✧ {7}</b> - Forward seek the music.
-  <b>✧ {8}</b> - Backward seek the music to your duration.
-  <b>✧ {9}</b> - Reboot bot for your chat.
-
-  <b>✧ {4}</b> [Number (Example: 3)] - Skip music to a specific number. Example: <b>/skip 3</b> will skip to the third queued music and will ignore 1 and 2 in the queue.
-
-  <b>✧ {10}</b> [Enable/Disable] or [Number between 1-10] - When activated, the bot will loop the current music 1-10 times in voice chat. Default loop value is 10 times.
-
-
-Active: |
+Bot Komutları: |
   <b>✧ {0}</b> - Check active voice chats on the bot.
 
   <b>✧ {1}</b> - Check active voice and video calls on the bot.
@@ -34,12 +15,3 @@ Active: |
   <b>✧ {2}</b> - Check active video calls on the bot.
 
   <b>✧ {3}</b> - Check bot stats.
-
-Play: |
-  <b>✧ {0}</b> - Bot will start playing your given query on voice chat or stream live links on voice chats.
-
-  <b>✧ {1}</b> - Force Play stops the current playing track on voice chat and starts playing the searched track instantly without disturbing/clearing the queue.
-
-  <b>✧ {2}</b> - Connect channel to a group and stream music on channel's voice chat from your group.
-
-  <b>✧ {3}</b> - Stream a URL that you believe is direct or m3u8 that can't be played by /play.
