@@ -141,7 +141,7 @@ cplay_5: "🚫 Only channels are supported."
 cplay_6: "🔑 You need to be the **owner** of the channel [{0}] to connect it with this group.\n**Channel's owner:** @{1}\n\nAlternatively, you can link your group to that channel and then try connecting with `/channelplay linked`."
 
 # Play Messages
-play_1: "🔄 **Processing...**"
+play_1: "🔃 **Müzik İndiriliyor...**\n⏳ **Lütfen Bekleyin...****"
 play_2: "📺 **Channel play mode**\nProcessing query... please wait!\n\n**Linked channel:** {0}"
 play_3: "❌ Failed to process query!"
 play_4: "🔒 **Admins only play**\nOnly admins and auth users can play music in this group.\n\nChange mode via /playmode and if you're already admin, reload admincache via /admincache or /reload."
@@ -235,11 +235,11 @@ song_11: "📤 Uploading started\nPlease hold on..."
 queue_1: "⏳ » Please wait..."
 queue_2: "🚫 Queued List is empty. No tracks found."
 queue_3: "<u>**Queued Tracks:</u>**  [Checkout More Queued Tracks From Here]({0})"
-queue_4: "**💫 Added to queue at #{0}**\n\n**🥀Title:** {1}\n**⏱ Duration:** {2}\n**🥀Added by:** {3} ❄️"
+queue_4: "**<blockquote>💫 Sıraya Eklendi #{0}</blockquote>**\n\n<blockquote>**🔮 Başlık:** {1}\n**⏳ Süre:** {2}\n**👉 Talep  Eden:** {3} </blockquote>"
 queue_5: "🚫 Only one track is in queue; add some more tracks in the queue to check the whole queue."
 
 # All Streaming Lines
-stream_1: "**✮ Started Streaming**\n\n**✯ Title:** [{0}]({1})\n**✬ Duration:** {2} minutes\n**✭ By:** {3}"
+stream_1: "**<blockquote>Yayın Başladı</blockquote>**\n\n**<blockquote>🔮 Başlık:** {0}\n**⏳ Süre:** {2}\n**👉 Talep Eden:** {3}</blockquote>"
 stream_2: "➲ **Started Streaming |**\n\n**‣ Stream type:** live stream [url]\n**‣ By:** {0}"
 
 V_C_1: "🔄 Fetching participants list...."
