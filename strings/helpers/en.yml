@@ -1,11 +1,11 @@
 Auth: |
   <b>Auth Users can use Admin commands without admin rights in your chat.</b>
 
-  <b>✧ {0}</b> [Username] - Add a user to AUTH LIST of the Group.
+  <b>✧ </b> [Username] - Add a user to AUTH LIST of the Group.
 
-  <b>✧ {1}</b> [Username] - Remove a user from AUTH LIST of the group.
+  <b>✧ </b> [Username] - Remove a user from AUTH LIST of the group.
 
-  <b>✧ {2}</b> - Check AUTH LIST of the Group.
+  <b>✧ </b> - Check AUTH LIST of the Group.
 
 Admin: |
   <b>c stands for channel play</b>
