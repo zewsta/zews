@@ -311,9 +311,9 @@ async def help_button(client, query):
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ Back", callback_data=f"help_prev({page_n},{int(close)})"
+                        text="ɢᴇʀɪ", callback_data=f"help_prev({page_n},{int(close)})"
                     ),
-                    InlineKeyboardButton(text="🔄 Close", callback_data="close"),
+                    InlineKeyboardButton(text="ᴋᴀᴘᴀᴛ", callback_data="close"),
                 ]
             ]
         )
