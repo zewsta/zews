@@ -17,7 +17,6 @@ from YukkiMusic import app
 from YukkiMusic.core.call import Yukki
 from YukkiMusic.utils import bot_sys_stats
 from YukkiMusic.utils.decorators.language import language
-from YukkiMusic.utils.inline import support_group_markup
 
 
 @app.on_message(command("PING_COMMAND") & ~BANNED_USERS)
@@ -41,5 +40,4 @@ async def ping_com(client, message: Message, _):
             DISK,
             pytgping,
         ),
-        reply_markup=support_group_markup(_),
     )
