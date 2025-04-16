@@ -270,10 +270,9 @@ async def admin_callback(client, CallbackQuery, _):
             except Exception:
                 return await CallbackQuery.message.reply_text(_["call_7"])
             button = telegram_markup(_, chat_id)
-            img = await gen_thumb(videoid)
-            run = await CallbackQuery.message.reply_photo(
-                photo=img,
-                caption=_["stream_1"].format(
+            img = None
+            run = await CallbackQuery.message.reply_text(
+                text=_["stream_1"].format(
                     user,
                     f"https://t.me/{app.username}?start=info_{videoid}",
                 ),
@@ -323,10 +322,9 @@ async def admin_callback(client, CallbackQuery, _):
                 return await mystic.edit_text(_["call_7"])
             check[0]["dur"] = duration_min
             button = stream_markup(_, videoid, chat_id)
-            img = await gen_thumb(videoid, thumbnail)
-            run = await CallbackQuery.message.reply_photo(
-                photo=img,
-                caption=_["stream_1"].format(
+            img = None
+            run = await CallbackQuery.message.reply_text(
+                text=_["stream_1"].format(
                     title[:27],
                     flink,
                     duration_min,
@@ -344,9 +342,8 @@ async def admin_callback(client, CallbackQuery, _):
             except Exception:
                 return await CallbackQuery.message.reply_text(_["call_7"])
             button = telegram_markup(_, chat_id)
-            run = await CallbackQuery.message.reply_photo(
-                photo=STREAM_IMG_URL,
-                caption=_["stream_2"].format(user),
+            run = await CallbackQuery.message.reply_text(
+                text=_["stream_2"].format(user),
                 reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
@@ -359,13 +356,8 @@ async def admin_callback(client, CallbackQuery, _):
                 return await CallbackQuery.message.reply_text(_["call_7"])
             if videoid == "telegram":
                 button = telegram_markup(_, chat_id)
-                run = await CallbackQuery.message.reply_photo(
-                    photo=(
-                        TELEGRAM_AUDIO_URL
-                        if str(streamtype) == "audio"
-                        else TELEGRAM_VIDEO_URL
-                    ),
-                    caption=_["stream_1"].format(
+                run = await CallbackQuery.message.reply_text(
+                    text=_["stream_1"].format(
                         title, SUPPORT_GROUP, check[0]["dur"], user
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
@@ -374,13 +366,8 @@ async def admin_callback(client, CallbackQuery, _):
                 db[chat_id][0]["markup"] = "tg"
             elif videoid == "soundcloud":
                 button = telegram_markup(_, chat_id)
-                run = await CallbackQuery.message.reply_photo(
-                    photo=(
-                        SOUNCLOUD_IMG_URL
-                        if str(streamtype) == "audio"
-                        else TELEGRAM_VIDEO_URL
-                    ),
-                    caption=_["stream_1"].format(
+                run = await CallbackQuery.message.reply_text(
+                    text=_["stream_1"].format(
                         title, SUPPORT_GROUP, check[0]["dur"], user
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
@@ -389,21 +376,19 @@ async def admin_callback(client, CallbackQuery, _):
                 db[chat_id][0]["markup"] = "tg"
             elif "saavn" in videoid:
                 url = check[0]["url"]
-                details = await Platform.saavn.info(url)
+                details = None
                 button = telegram_markup(_, chat_id)
-                run = await CallbackQuery.message.reply_photo(
-                    photo=details["thumb"],
-                    caption=_["stream_1"].format(title, url, check[0]["dur"], user),
+                run = await CallbackQuery.message.reply_text(
+                    text=_["stream_1"].format(title, url, check[0]["dur"], user),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             else:
                 button = stream_markup(_, videoid, chat_id)
-                img = await gen_thumb(videoid)
-                run = await CallbackQuery.message.reply_photo(
-                    photo=img,
-                    caption=_["stream_1"].format(
+                img = None
+                run = await CallbackQuery.message.reply_text(
+                    text=_["stream_1"].format(
                         title[:27],
                         f"https://t.me/{app.username}?start=info_{videoid}",
                         duration_min,
