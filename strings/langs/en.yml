@@ -235,11 +235,10 @@ song_11: "📤 Uploading started\nPlease hold on..."
 queue_1: "⏳ » Please wait..."
 queue_2: "🚫 Queued List is empty. No tracks found."
 queue_3: "<u>**Queued Tracks:</u>**  [Checkout More Queued Tracks From Here]({0})"
-queue_4: "**<blockquote>💫 Sıraya Eklendi #{0}</blockquote>**\n\n<blockquote>**🔮 Başlık:** {1}\n**⏳ Süre:** {2}\n**👉 Talep  Eden:** {3} </blockquote>"
+queue_4: "**✅ Sıraya Eklendi #{0}**\n\n**🔮 {1}**\n**⏳ {2}** | **👉 {3}**"
 queue_5: "🚫 Only one track is in queue; add some more tracks in the queue to check the whole queue."
-
 # All Streaming Lines
-stream_1: "**<blockquote>Yayın Başladı</blockquote>**\n\n**<blockquote>🔮 Başlık:** {0}\n**⏳ Süre:** {2}\n**👉 Talep Eden:** {3}</blockquote>"
+stream_1: "**🔮 {0}**\n**⏳ {2}** | **👉 {3}**"
 stream_2: "➲ **Started Streaming |**\n\n**‣ Stream type:** live stream [url]\n**‣ By:** {0}"
 
 V_C_1: "🔄 Fetching participants list...."
