@@ -51,9 +51,9 @@ def git():
 
     try:
         repo = Repo()
-        LOGGER(__name__).info(f"Git Client Found [VPS DEPLOYER]")
+        LOGGER(__name__).info(f"Git İstemcisi Bulundu [VPS UYGULAYICISI]")
     except GitCommandError:
-        LOGGER(__name__).info(f"Invalid Git Command")
+        LOGGER(__name__).info(f"Geçersiz Git Komutu")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "origin" in repo.remotes:
@@ -94,4 +94,4 @@ def git():
     if requirements_updated:
         install_req("pip3 install --no-cache-dir -r requirements.txt")
 
-    LOGGER(__name__).info(f"Fetched Updates from: {REPO_LINK}")
+    LOGGER(__name__).info(f"Güncellemeler şu adresten alındı: {REPO_LINK}")
