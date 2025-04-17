@@ -41,29 +41,29 @@ async def inline_query_handler(client, query):
             channel = result[x]["channel"]["name"]
             link = result[x]["link"]
             published = result[x]["publishedTime"]
-            description = f"{views} | {duration} Mins | {channel}  | {published}"
+            description = f"{views} | {duration} Dakika | {channel}  | {published}"
             buttons = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ",
+                            text="🎥 Youtube'da İzle",
                             url=link,
                         )
                     ],
                 ]
             )
             searched_text = f"""
-❇️**ᴛɪᴛʟᴇ:** [{title}]({link})
+❇️ **Başlık:** [{title}]({link})
 
-⏳**ᴅᴜʀᴀᴛɪᴏɴ:** {duration} Mins
-👀**ᴠɪᴇᴡs:** `{views}`
-⏰**ᴘᴜʙʟɪsʜᴇᴅ ᴛɪᴍᴇ:** {published}
-🎥**ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ:** {channel}
-📎**ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ:** [ᴠɪsɪᴛ ғʀᴏᴍ ʜᴇʀᴇ]({channellink})
+⏳ **Süre:** {duration} Mins
+👀 **Görüntülenme:** `{views}`
+⏰ **Yayınlanma Tarihi:** {published}
+🎥 **Kanal Adı:** {channel}
+📎 **Kanal Link:** [Buradan Ziyaret Edin]({channellink})
 
-__ʀᴇᴘʟʏ ᴡɪᴛʜ /play ᴏɴ ᴛʜɪs sᴇᴀʀᴄʜᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ sᴛʀᴇᴀᴍ ɪᴛ ᴏɴ ᴠᴏɪᴄᴇᴄʜᴀᴛ.__
+__Sesli Sohbette Yayınlamak İçin Bu Aranan Mesajı /play İle Yanıtlayın.__
 
-⚡️ ** ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ʙʏ {app.mention} **"""
+⚡️ ** {app.mention} İle Satır İçi Arama **"""
             answers.append(
                 InlineQueryResultPhoto(
                     photo_url=thumbnail,
