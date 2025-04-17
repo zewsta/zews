@@ -22,7 +22,7 @@ DB_NAME = "Yukki"
 
 if config.MONGO_DB_URI is None:
     LOGGER(__name__).warning(
-        "No MONGO DB URL found.. Your Bot will work on Yukki's Database"
+        "MONGO DB URL'si bulunamadı.. Botunuz Yukki'nin Veritabanında çalışacak"
     )
     temp_client = Client(
         "Yukki",
