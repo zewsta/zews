@@ -10,7 +10,7 @@ Oynatma Komutları: |
   <b>✧ /bitir veya /son : Müziği Tamamen Durdurur.</b>
   <b>✧ /karistir : Sıraya Aldığınız Parçaları Karışık Şekilde Oynatır.</b>
   <b>✧ /ilerisar : Müziği İleri Sarar. (Örnek: /ilerisar 15 İle Çalan Müziği 15 Saniye İleri Alabilirsiniz.)</b>
-  <b>✧ /gerisar : Müziği Geri Sarar. (Örnek: /seekback 15 İle Çalan Müziği 15 Saniye Geri Alabilirsiniz.)</b>
+  <b>✧ /gerisar : Müziği Geri Sarar. (Örnek: /gerisar 15 İle Çalan Müziği 15 Saniye Geri Alabilirsiniz.)</b>
   <b>✧ /restart : Botu Yeniden Başlatır.</b>
 
   <b><u>✭ Oynatma Listeleri:</u></b>
@@ -19,11 +19,19 @@ Oynatma Komutları: |
   <b>✧ /listemisil :** Oynatma Listenizden Silmek İstediğiniz Müziği Seçebilirsiniz.</b>
   <b>✧ /oynat Komutunu Tek Başına Kullanırsanız:** Oynatma Listeleri Ekranına Ulaşırsınız.</b>
 
+  <b>Herhangi bir sorunda @Blayzen ile iletişime geçebilirsiniz.</b>
+
 Bot Komutları: |
-  <b>✧ {0}</b> - Check active voice chats on the bot.
+ <b>✭ Genel Bot Komutları</b>
+ 
+ <b>✧ /stat : Bottaki Tüm İstatistikleri Görebilirsiniz. En Çok Müzik Oynatan Gruplar, Kullanıcılar, En Çok Oynatılan Müzikler Ve Daha Fazlası...</b> 
+ <b>✧ /sudolist : Yardım İstemek İçin Bottaki Sudo Kullanıcılarına Ulaşabilirsiniz.</b>
+ <b>✧ /sarkisozu [Müzik Adı] : Sözlerine Bakmak İstediğiniz Şarkıyı Arayabilirsiniz.</b>
+ <b>✧ /bul [Müzik Adı] veya [Youtube Linki] : Youtubedan İndirmek İstediğiniz Şarkıyı İndirebilirsiniz.</b>
+ <b>✧ /sira : Sırada Olan Müzikler Listesini Görebilirsiniz.</b>
+ <b>✧ /start : Botun Başlatma Panelini Gösterir.</b>
+ <b>✧ /ayarlar : Ayarlar Menüsüne Ulaşabilirsiniz.</b>
+ <b>✧ /yardim : Botun Yardım Menüsüne Ulaşırsınız.</b>
+ <b>✧ /ping : Ping Süresini CPU Ve RAM Kullanımına Bakabilirsiniz.</b>
 
-  <b>✧ {1}</b> - Check active voice and video calls on the bot.
-
-  <b>✧ {2}</b> - Check active video calls on the bot.
-
-  <b>✧ {3}</b> - Check bot stats.
+  <b>Herhangi bir sorunda @Blayzen ile iletişime geçebilirsiniz.</b>
