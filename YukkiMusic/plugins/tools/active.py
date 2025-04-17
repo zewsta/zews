@@ -30,7 +30,7 @@ async def _clear_(chat_id):
 
 @app.on_message(command("ACTIVEVC_COMMAND") & SUDOERS)
 async def activevc(_, message: Message):
-    mystic = await message.reply_text("Getting Active Voicechats....\nPlease hold on")
+    mystic = await message.reply_text("**Aktif Sesli Sohbetler Getiriliyor...**")
     served_chats = await get_active_chats()
     text = ""
     j = 0
@@ -47,17 +47,17 @@ async def activevc(_, message: Message):
             await _clear_(x)
             continue
     if not text:
-        await mystic.edit_text("No active Chats Found")
+        await mystic.edit_text("**Aktif Sohbet Bulunamadı.**")
     else:
         await mystic.edit_text(
-            f"**Active Voice Chat's:-**\n\n{text}",
+            f"**Aktif Sesli Sohbetler:-**\n\n{text}",
             disable_web_page_preview=True,
         )
 
 
 @app.on_message(command("ACTIVEVIDEO_COMMAND") & SUDOERS)
 async def activevi_(_, message: Message):
-    mystic = await message.reply_text("Getting Active Voicechats....\nPlease hold on")
+    mystic = await message.reply_text("Aktif Görüntülü Sohbetler Getiriliyor...**")
     served_chats = await get_active_video_chats()
     text = ""
     j = 0
@@ -74,10 +74,10 @@ async def activevi_(_, message: Message):
             await _clear_(x)
             continue
     if not text:
-        await mystic.edit_text("No active Chats Found")
+        await mystic.edit_text("**Aktif Sohbet Bulunamadı.**")
     else:
         await mystic.edit_text(
-            f"**Active Video Chat's:-**\n\n{text}",
+            f"**Aktif Görüntülü Sohbetler:-**\n\n{text}",
             disable_web_page_preview=True,
         )
 
@@ -85,4 +85,4 @@ async def activevi_(_, message: Message):
 @app.on_message(command("AC_COMMAND") & SUDOERS)
 async def vc(client, message: Message):
     ac_audio = str(len(await get_active_chats()))
-    await message.reply_text(f"Active Chats info: {ac_audio}")
+    await message.reply_text(f"Aktif Sohbetler: {ac_audio}")
