@@ -146,7 +146,7 @@ async def admin_callback(client, CallbackQuery, _):
         )
     elif command in ["Skip", "Replay"]:
         check = db.get(chat_id)
-        txt = f"» Track {command.lower()}ed by {mention} !"
+        txt = f"» Parça {command.lower()}ed by {mention} !"
 
         if command == "Skip":
             try:
