@@ -433,7 +433,7 @@ heroku_9 : "✅ {0} başarıyla güncellendi"
 heroku_10 : "✅ {0} başarıyla eklendi"
 heroku_11 : "🛠️ Yalnızca Heroku Uygulamaları için"
 heroku_12 : "🔍 Heroku Kullanımı kontrol ediliyor. Lütfen Bekleyin"
-heroku_13 : "🔄 Mevcut güncellemeler kontrol ediliyor..."
+heroku_13 : "🔄 **Mevcut Güncellemeler Kontrol Ediliyor...**"
 heroku_14 : "⚠️ Git Komut Hatası"
 heroku_15 : "❌ Geçersiz Git Deposu"
 
