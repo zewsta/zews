@@ -31,7 +31,7 @@ def cookies():
     txt_files = [file for file in os.listdir(folder_path) if file.endswith(".txt")]
     if not txt_files:
         raise FileNotFoundError(
-            "No Cookies found in cookies directory make sure your cookies file written  .txt file"
+            "Çerezler dizininde Çerez bulunamadı çerez dosyanızın .txt dosyası yazdığından emin olun."
         )
     cookie_txt_file = random.choice(txt_files)
     cookie_txt_file = os.path.join(folder_path, cookie_txt_file)
