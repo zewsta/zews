@@ -326,7 +326,7 @@ async def admin_callback(client, CallbackQuery, _):
             if (duration_played - duration_to_skip) <= 10:
                 bet = seconds_to_min(duration_played)
                 return await CallbackQuery.answer(
-                    f"Bot is unable to seek because duration exceeds.\n\nCurrently played:** {bet}** minutes out of **{duration}** minutes.",
+                    f"Süre aşıldığı için bot arama yapamıyor.\n\nŞu anda oynanan:** {duration}** dakika üzerinden {bet}** dakika.",
                     show_alert=True,
                 )
             to_seek = duration_played - duration_to_skip + 1
@@ -334,7 +334,7 @@ async def admin_callback(client, CallbackQuery, _):
             if (duration_seconds - (duration_played + duration_to_skip)) <= 10:
                 bet = seconds_to_min(duration_played)
                 return await CallbackQuery.answer(
-                    f"Bot is unable to seek because duration exceeds.\n\nCurrently played:** {bet}** minutes out of **{duration}** minutes.",
+                    f"Süre aşıldığı için bot arama yapamıyor.\n\nŞu anda oynanan:** {duration}** dakika üzerinden {bet}** dakika.",
                     show_alert=True,
                 )
             to_seek = duration_played + duration_to_skip + 1
@@ -359,7 +359,7 @@ async def admin_callback(client, CallbackQuery, _):
         else:
             db[chat_id][0]["played"] += duration_to_skip
         string = _["admin_33"].format(seconds_to_min(to_seek))
-        await mystic.edit_text(f"{string}\n\nChanges Done by: {mention} !")
+        await mystic.edit_text(f"{string}\n\nDeğişiklikler {mention} Tarafından Yapıldı !")
 
 
 @app.on_callback_query(filters.regex("MusicStream") & ~BANNED_USERS)
@@ -435,7 +435,7 @@ async def play_music(client, CallbackQuery, _):
 async def anonymous_check(client, CallbackQuery):
     try:
         await CallbackQuery.answer(
-            "You are an anonymous admin\nRevert back to user to use me",
+            "Sen anonim bir yöneticisin\nBeni kullanmak için hesaba geri dön",
             show_alert=True,
         )
     except Exception:
@@ -612,11 +612,11 @@ async def stop_download(client, CallbackQuery: CallbackQuery, _):
     task = lyrical.get(message_id)
     if not task:
         return await CallbackQuery.answer(
-            "Download Already Completed..", show_alert=True
+            "İndirme İşlemi Zaten Tamamlandı..", show_alert=True
         )
     if task.done() or task.cancelled():
         return await CallbackQuery.answer(
-            "Downloading already Completed or Cancelled.",
+            "İndirme işlemi zaten tamamlandı veya iptal edildi.",
             show_alert=True,
         )
     if not task.done():
@@ -628,11 +628,11 @@ async def stop_download(client, CallbackQuery: CallbackQuery, _):
                 pass
             await CallbackQuery.answer("Downloading Cancelled", show_alert=True)
             return await CallbackQuery.edit_message_text(
-                f"Downloading cancelled by {CallbackQuery.from_user.mention}"
+                f"İndirme işlemi {CallbackQuery.from_user.mention} tarafından iptal edildi."
             )
         except Exception:
             return await CallbackQuery.answer(
-                "Failed to stop downloading", show_alert=True
+                "İndirme işlemi durdurulamadı", show_alert=True
             )
 
-    await CallbackQuery.answer("Failed to Recognise Task", show_alert=True)
+    await CallbackQuery.answer("Görevi Tanımada Başarısız Oldu", show_alert=True)
