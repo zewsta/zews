@@ -44,92 +44,13 @@ from YukkiMusic.utils.decorators.language import languageCB
 from YukkiMusic.utils.formatters import seconds_to_min
 from YukkiMusic.utils.inline.play import (
     livestream_markup,
-    panel_markup_1,
-    panel_markup_2,
-    panel_markup_3,
     slider_markup,
-    stream_markup,
-    telegram_markup,
 )
 from YukkiMusic.utils.stream.autoclear import auto_clean
 from YukkiMusic.utils.stream.stream import stream
 from YukkiMusic.utils.thumbnails import gen_thumb
 
 wrong = {}
-
-
-@app.on_callback_query(filters.regex("PanelMarkup") & ~BANNED_USERS)
-@languageCB
-async def markup_panel(client, CallbackQuery: CallbackQuery, _):
-    await CallbackQuery.answer()
-    callback_data = CallbackQuery.data.strip()
-    callback_request = callback_data.split(None, 1)[1]
-    videoid, chat_id = callback_request.split("|")
-    chat_id = CallbackQuery.message.chat.id
-    buttons = panel_markup_1(_, videoid, chat_id)
-    try:
-        await CallbackQuery.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(buttons)
-        )
-    except Exception:
-        return
-    if chat_id not in wrong:
-        wrong[chat_id] = {}
-    wrong[chat_id][CallbackQuery.message.id] = False
-
-
-@app.on_callback_query(filters.regex("MainMarkup") & ~BANNED_USERS)
-@languageCB
-async def main_markup_(client, CallbackQuery, _):
-    await CallbackQuery.answer()
-    callback_data = CallbackQuery.data.strip()
-    callback_request = callback_data.split(None, 1)[1]
-    videoid, chat_id = callback_request.split("|")
-    if videoid == str(None):
-        buttons = telegram_markup(_, chat_id)
-    else:
-        buttons = stream_markup(_, videoid, chat_id)
-    chat_id = CallbackQuery.message.chat.id
-    try:
-        await CallbackQuery.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(buttons)
-        )
-    except Exception:
-        return
-    if chat_id not in wrong:
-        wrong[chat_id] = {}
-    wrong[chat_id][CallbackQuery.message.id] = True
-
-
-@app.on_callback_query(filters.regex("Pages") & ~BANNED_USERS)
-@languageCB
-async def pages_markup(client, CallbackQuery, _):
-    await CallbackQuery.answer()
-    callback_data = CallbackQuery.data.strip()
-    callback_request = callback_data.split(None, 1)[1]
-    state, pages, videoid, chat = callback_request.split("|")
-    chat_id = int(chat)
-    pages = int(pages)
-    if state == "Forw":
-        if pages == 0:
-            buttons = panel_markup_2(_, videoid, chat_id)
-        if pages == 2:
-            buttons = panel_markup_1(_, videoid, chat_id)
-        if pages == 1:
-            buttons = panel_markup_3(_, videoid, chat_id)
-    if state == "Back":
-        if pages == 2:
-            buttons = panel_markup_2(_, videoid, chat_id)
-        if pages == 1:
-            buttons = panel_markup_1(_, videoid, chat_id)
-        if pages == 0:
-            buttons = panel_markup_3(_, videoid, chat_id)
-    try:
-        await CallbackQuery.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(buttons)
-        )
-    except Exception:
-        return
 
 
 @app.on_callback_query(filters.regex("ADMIN") & ~BANNED_USERS)
@@ -269,14 +190,12 @@ async def admin_callback(client, CallbackQuery, _):
                 await Yukki.skip_stream(chat_id, link, video=status)
             except Exception:
                 return await CallbackQuery.message.reply_text(_["call_7"])
-            button = telegram_markup(_, chat_id)
             img = None
             run = await CallbackQuery.message.reply_text(
                 text=_["stream_1"].format(
                     user,
                     f"https://t.me/{app.username}?start=info_{videoid}",
                 ),
-                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
@@ -321,7 +240,6 @@ async def admin_callback(client, CallbackQuery, _):
             except Exception:
                 return await mystic.edit_text(_["call_7"])
             check[0]["dur"] = duration_min
-            button = stream_markup(_, videoid, chat_id)
             img = None
             run = await CallbackQuery.message.reply_text(
                 text=_["stream_1"].format(
@@ -330,7 +248,6 @@ async def admin_callback(client, CallbackQuery, _):
                     duration_min,
                     user,
                 ),
-                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "stream"
@@ -341,10 +258,8 @@ async def admin_callback(client, CallbackQuery, _):
                 await Yukki.skip_stream(chat_id, videoid, video=status)
             except Exception:
                 return await CallbackQuery.message.reply_text(_["call_7"])
-            button = telegram_markup(_, chat_id)
             run = await CallbackQuery.message.reply_text(
                 text=_["stream_2"].format(user),
-                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
@@ -355,37 +270,30 @@ async def admin_callback(client, CallbackQuery, _):
             except Exception:
                 return await CallbackQuery.message.reply_text(_["call_7"])
             if videoid == "telegram":
-                button = telegram_markup(_, chat_id)
                 run = await CallbackQuery.message.reply_text(
                     text=_["stream_1"].format(
                         title, SUPPORT_GROUP, check[0]["dur"], user
                     ),
-                    reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             elif videoid == "soundcloud":
-                button = telegram_markup(_, chat_id)
                 run = await CallbackQuery.message.reply_text(
                     text=_["stream_1"].format(
                         title, SUPPORT_GROUP, check[0]["dur"], user
                     ),
-                    reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             elif "saavn" in videoid:
                 url = check[0]["url"]
                 details = None
-                button = telegram_markup(_, chat_id)
                 run = await CallbackQuery.message.reply_text(
                     text=_["stream_1"].format(title, url, check[0]["dur"], user),
-                    reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             else:
-                button = stream_markup(_, videoid, chat_id)
                 img = None
                 run = await CallbackQuery.message.reply_text(
                     text=_["stream_1"].format(
@@ -394,7 +302,6 @@ async def admin_callback(client, CallbackQuery, _):
                         duration_min,
                         user,
                     ),
-                    reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "stream"
