@@ -38,9 +38,9 @@ async def stop_music(cli, message: Message):
                 filter = " ".join(message.command[1:])
                 deleted = await delete_filter(message.chat.id, filter)
                 if deleted:
-                    return await message.reply_text(f"**ᴅᴇʟᴇᴛᴇᴅ ғɪʟᴛᴇʀ {filter}.**")
+                    return await message.reply_text(f"**Silinen filtre {filter}.**")
                 else:
-                    return await message.reply_text("**ɴᴏ sᴜᴄʜ ғɪʟᴛᴇʀ.**")
+                    return await message.reply_text("**Böyle bir filtre yok**")
 
     if await is_commanddelete_on(message.chat.id):
         try:
@@ -58,7 +58,7 @@ async def stop_music(cli, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="How to Fix this? ",
+                        text="Bu Nasıl Düzeltilir?",
                         callback_data="AnonymousAdmin",
                     ),
                 ]
