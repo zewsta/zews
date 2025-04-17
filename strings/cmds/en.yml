@@ -14,15 +14,15 @@
 PING_COMMAND : ["ping", "alive", "aalive"]
 PRIVACY_COMMAND : ["privacy"]
 START_COMMAND : ["start"]
-HELP_COMMAND : ["help"]
-SETTINGS_COMMAND : ["settings", "setting"]
+HELP_COMMAND : ["help", "yardim"]
+SETTINGS_COMMAND : ["settings", "setting", "ayar", "ayarlar"]
 RELOAD_COMMAND : ["admincache", "reload"]
 GSTATS_COMMAND : ["gstats"]
 STATS_COMMAND : ["stats"]
-LANGUAGE_COMMAND : ["lang", "language", "langs"]
+LANGUAGE_COMMAND : ["lang", "language", "langs", "dil", "diller"]
 
 # Play Commands
-PLAY_COMMAND : ["play", "vplay", "cplay", "cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce"]
+PLAY_COMMAND : ["oynat", "voynat", "coynat", "cvoynat", "play", "vplay", "cplay", "cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce"]
 PLAYMODE_COMMAND : ["playmode"]
 CHANNELPLAY_COMMAND : ["channelplay"]
 STREAM_COMMAND : ["stream", "cstream", "streamforce", "cstreamforce"]
@@ -30,41 +30,41 @@ STREAM_COMMAND : ["stream", "cstream", "streamforce", "cstreamforce"]
 #Playlists Command
 PLAYLIST_COMMAND : ["playlist"]
 PLAY_PLAYLIST_COMMAND : ["playplaylist", "vplayplaylist"]
-DELETE_PLAYLIST_COMMAND : ["deleteplaylist", "delplaylist"]
+DELETE_PLAYLIST_COMMAND : ["deleteplaylist", "delplaylist", "listemisil"]
 ADD_PLAYLIST_COMMAND : ["addplaylist"]
 
 
 # Tools
-QUEUE_COMMAND : ["queue","cqueue","cplayer", "playing", "cplaying", "player"]
-SONG_COMMAND : ["song", "video"]
-LYRICS_COMMAND : ["lyrics"]
+QUEUE_COMMAND : ["queue","cqueue","cplayer", "playing", "cplaying", "player", "sira", "sıra"]
+SONG_COMMAND : ["song", "video", "indir", "sarki", "muzik"]
+LYRICS_COMMAND : ["lyrics", "sarkisozu"]
 
 
 # Admin Commands
-AUTH_COMMAND : ["auth"]
-UNAUTH_COMMAND : ["unauth"]
-AUTHUSERS_COMMAND : ["authusers"]
-PAUSE_COMMAND : ["pause", "cpause"]
-RESUME_COMMAND : ["resume", "cresume"]
+AUTH_COMMAND : ["auth", "yetki", "yetkiver"]
+UNAUTH_COMMAND : ["unauth", "yetkial", "delyetki"]
+AUTHUSERS_COMMAND : ["authusers", "yetkilikullanicilar", "yetkililer"]
+PAUSE_COMMAND : ["pause", "cpause", "duraklat", "dur"]
+RESUME_COMMAND : ["resume", "cresume", "devam", "devamet", "devamettir"]
 MUTE_COMMAND : ["cmute", "mute"]
 UNMUTE_COMMAND : ["unmute", "cunmute"]
-STOP_COMMAND : ["stop", "end", "cstop", "cend"]
-SKIP_COMMAND : ["skip", "cskip"]
-SHUFFLE_COMMAND : ["shuffle", "cshuffle"]
-LOOP_COMMAND : ["loop", "cloop"]
-SEEK_COMMAND : ["seek", "cseek"]
-SEEK_BACK_COMMAND : ["seekback", "cseekback"]
+STOP_COMMAND : ["stop", "end", "cstop", "cend", "son", "cson", "durdur", "bitir", "cbitir"]
+SKIP_COMMAND : ["skip", "cskip", "atla", "catla"]
+SHUFFLE_COMMAND : ["shuffle", "cshuffle", "karistir", "karıştır"]
+LOOP_COMMAND : ["loop", "cloop", "döngü", "dongu", "cdongu"]
+SEEK_COMMAND : ["seek", "cseek", "ilerisar", "cilerisar"]
+SEEK_BACK_COMMAND : ["seekback", "cseekback", "gerisar", "cgerisar"]
 REBOOT_COMMAND : ["reboot"]
 
 # Sudo Users Commaands
 
 # Sudo Command
-ADDSUDO_COMMAND : ["addsudo"]
-DELSUDO_COMMAND : ["delsudo"]
+ADDSUDO_COMMAND : ["addsudo", "sudoekle"]
+DELSUDO_COMMAND : ["delsudo", "sudokaldir"]
 SUDOUSERS_COMMAND : ["sudolist"]
 
 #Broadcast 
-BROADCAST_COMMAND : ["broadcast", "gcast"]
+BROADCAST_COMMAND : ["broadcast", "gcast", "reklam", "duyuru"]
 
 #Blacklist chat
 BLACKLISTCHAT_COMMAND : ["blacklistchat"]
@@ -88,7 +88,7 @@ USAGE_COMMAND : ["usage"]
 
 
 #Basic Bot Commands
-UPDATE_COMMAND : ["update","gitpull", "up"]
+UPDATE_COMMAND : ["update","gitpull", "up", "guncelle"]
 RESTART_COMMAND : ["restart"]
 AUTOEND_COMMAND : ["autoend"]
 
@@ -103,11 +103,11 @@ UNBLOCK_COMMAND : ["unblock"]
 BLOCKED_COMMAND : ["blockedusers"]
 
 #sPEEDTEST
-SPEEDTEST_COMMAND : ["speedtest"]
+SPEEDTEST_COMMAND : ["speedtest", "hiz"]
 
 #Voice chat commands
-ACTIVEVC_COMMAND : ["activevoice","activevc"]
-ACTIVEVIDEO_COMMAND : ["activevideo","activevd"]
+ACTIVEVC_COMMAND : ["activevoice","activevc", "aktifses"]
+ACTIVEVIDEO_COMMAND : ["activevideo","activevd", "aktifvideo"]
 AC_COMMAND: ["ac"]
 
 #Gban Commands
