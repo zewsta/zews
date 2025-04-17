@@ -9,7 +9,7 @@ general_5 : "🔑 **Bu İşlemi Gerçekleştirmek İçin Görüntülü Sohbeti Y
 general_6 : "📺 **Bot Sesli Sohbette Yayın Yapmıyor.**"
 
 # Classes - Telegram.py
-tg_1 : "⚠️ **Bot Şu Anda İndirilenlerle Aşırı yüklenmiş. Botun Düzeltilmesi İçin Bu Mesajı** @Zewsta'**e İletin.**\n\n**Deneme Süresi:** {0} (__beklenen süre__))"
+tg_1 : "⚠️ **Bot Şu Anda İndirilenlerle Aşırı yüklenmiş. Botun Düzeltilmesi İçin Bu Mesajı** @Blayzen'**e İletin.**\n\n**Deneme Süresi:** {0} (__beklenen süre__))"
 tg_2 : "❌ **Telegram'dan Medya İndirilirken Hata Oluştu.**"
 
 # Core - Call.py
@@ -369,37 +369,37 @@ sudo_7: "🔍 **Yetkili Kullanıcı Bulunamadı.**"
 
 
 # Block
-block_1: "{0} is already blocked from the bot."
-block_2: "🚫 Added **{0}** to block list of bot. User won't be able to use bot now under any condition.\n\nCheck blocked users: /blockedusers"
-block_3: "🆓 User is already free."
-block_4: "✅ Removed user from the block list. User will be able to use bot now."
-block_5: "🔍 No blocked users found."
-block_6: "⏳ Getting blocked users list...please wait!"
-block_7: "**Blocked users:**\n\n"
+block_1 : "{0} **Bot Tarafından Zaten Engellendi.**"
+block_2 : "🚫 **Botun Engellenenler Listesine <u>{0}</u> Eklendi. Kullanıcı Artık Hiçbir Koşulda <u>Vortex Müzik</u>'i Kullanamayacak.\n\nEngellenen Kullanıcıları Kontrol Edin: /blockedusers**"
+block_3 : "🆓 **Kullanıcının Zaten Kısıtlaması Yok Ve Engellenmedi.**"
+block_4 : "✅ **Kullanıcı Engelleme Listesinden Kaldırıldı. Kullanıcı Artık Bot Kullanabilecek.**"
+block_5 : "🔍 **Engellenen Kullanıcı Bulunamadı.**"
+block_6 : "⏳ **Engellenen Kullanıcılar Listesi Alınıyor... Lütfen Bekleyin...**"
+block_7 : "🚫 **Engellenmiş Kullanıcılar:**\n\n"
 
 # Blacklist Chats
-black_1: "**Usage:**\n/blacklistchat [CHAT_ID]"
-black_2: "🚫 Chat is already blacklisted."
-black_3: "✅ Chat has been successfully blacklisted."
-black_4: "**Usage:**\n/whitelistchat [CHAT_ID]"
-black_5: "✅ Chat is already whitelisted."
-black_6: "✅ Chat has been successfully whitelisted."
-black_7: "**Blacklisted chats:**\n\n"
-black_8: "🔍 No blacklisted chats."
+black_1 : "**Kullanım:**\n/blacklistchat [Grup ID]"
+black_2 : "🚫 **Sohbet Zaten Kara Listeye Alındı.**"
+black_3 : "✅ **Sohbet Başarıyla Kara Listeye Alındı.**"
+black_4 : "**Kullanım:**\n/whitelistchat [Grup ID]"
+black_5 : "✅ **Sohbet Zaten Beyaz Listede.**"
+black_6 : "✅ **Sohbet Başarıyla Beyaz Listeye Alındı.**"
+black_7 : "**Kara Listeye Alınmış Sohbetler:**\n\n"
+black_8 : "🔍 **Kara Listeye Alınmış Sohbet Yok.**"
 
 # Video Limit
-vid_1: "**Usage:**\n/set_video_limit [number of chats] or [disable]"
-vid_2: "🔢 Please use numeric numbers for setting limit."
-vid_3: "📊 Video calls maximum limit defined to {0} chats."
-vid_4: "🚫 Video calls disabled."
+vid_1 : "**Kullanım:**\n/set_video_limit veya /videolimit [İzin verilen sohbet sayısı] veya [Disable]"
+vid_2 : "🔢 Lütfen Limiti Ayarlamak için Sayısal Rakamlar Kullanın."
+vid_3 : "📊 Görüntülü Görüşmelerin Maksimum Sınırı, {0} Sohbet İçin Tanımlandı."
+vid_4 : "🚫 Görüntülü Görüşmeler Devre Dışı"
 
 # Maintenance
-maint_1: "**Usage:**\n/maintenance [enable|disable]"
-maint_2: "🔧 Enabled for maintenance."
-maint_3: "🔧 Maintenance mode disabled."
-maint_4: "🛠️ The bot is under maintenance. Visit support to know the reason."
-maint_5: "Maintenance Mode is already Disabled."
-maint_6: "Maintenance Mode is already enabled."
+maint_1 : "**Kullanım:**\n/maintenance [enable|disable]"
+maint_2 : "🔧 **Bakım için Etkinleştirildi**"
+maint_3 : "🔧 **Bakım Modu Devre Dışı**"
+maint_4: "🛠️ **Bot Bakımda. Nedenini Öğrenmek İçin Desteği Ziyaret Edin.**"
+maint_5: "**Bakım Modu Zaten Devre Dışı.**"
+maint_6: "**Bakım Modu Zaten Etkin.**"
 
 # Log
 log_1: "**Usage:**\n/logger [enable|disable]"
