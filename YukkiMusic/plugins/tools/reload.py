@@ -38,5 +38,5 @@ async def reload_admin_cache(client, message: Message, _):
         await message.reply_text(_["admin_20"])
     except Exception:
         await message.reply_text(
-            "Failed to reload admincache make sure bot is an admin in your chat"
+            "**Yönetici önbelleği yüklenemedi, botun grubunuzda yetkisi olduğundan emin olun.**"
         )
