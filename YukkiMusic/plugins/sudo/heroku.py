@@ -256,16 +256,16 @@ async def update_(client, message, _):
         "tsnrhtdd"[(format // 10 % 10 != 1) * (format % 10 < 4) * format % 10 :: 4],
     )
     updates = "".join(
-        f"<b>➫ #{info.count()}: <a href={REPO_}/taahhüt/{info}>{info.summary}</a> tarafından -> {info.author}</b>\n\t\t\t\t<b>➥ Taahhüt Edildi:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
+        f"<b>➫ #{info.count()}: <a href={REPO_}/taahhüt/{info}>{info.summary}</a> **tarafından** -> {info.author}</b>\n\t\t\t\t<b>➥ **Taahhüt Edildi**:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
         for info in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}")
     )
-    _update_response_ = "**Bot için yeni bir güncelleme mevcut!**\n\n➫ Güncellemeler şimdi gönderiliyor\n\n__**Güncellemeler:**__\n"
+    _update_response_ = "**Bot için yeni bir güncelleme mevcut!**\n\n➫ **Güncellemeler şimdi gönderiliyor**\n\n__**Güncellemeler:**__\n"
     _final_updates_ = f"{_update_response_} {updates}"
 
     if len(_final_updates_) > 4096:
         url = await Yukkibin(updates)
         nrs = await response.edit(
-            f"**Bot için yeni bir güncelleme mevcut!**\n\n➣ Güncellemeler şimdi gönderiliyor\n\n__**Güncellemeler:**__\n\n[Güncellemeleri Kontrol Edin]({url})",
+            f"**Bot için yeni bir güncelleme mevcut!**\n\n➣ **Güncellemeler şimdi gönderiliyor**\n\n__**Güncellemeler:**__\n\n[Güncellemeleri Kontrol Edin]({url})",
             disable_web_page_preview=True,
         )
     else:
@@ -278,7 +278,7 @@ async def update_(client, message, _):
             try:
                 await app.send_message(
                     chat_id=int(x),
-                    text="{} **Kendini güncelliyor...**\n\n**15-20 saniye sonra çalmaya başlayabilirsiniz.**".format(
+                    text="{} **Kendini güncelliyor...**\n\n**15-20 saniye sonra oynatmaya başlayabilirsiniz.**".format(
                         app.mention
                     ),
                 )
@@ -354,7 +354,7 @@ async def restart_(client, message):
         try:
             await app.send_message(
                 chat_id=int(x),
-                text=f"{app.mention} Yeniden başlatılıyor...\n\n15-20 saniye sonra çalmaya başlayabilirsiniz.",
+                text=f"**{app.mention} Yeniden başlatılıyor...**\n\n**15-20 saniye sonra oynatmaya başlayabilirsiniz.**",
             )
             await remove_active_chat(x)
             await remove_active_video_chat(x)
@@ -368,6 +368,6 @@ async def restart_(client, message):
     except Exception:
         pass
     await response.edit_text(
-        "Yeniden başlatma işlemi başladı, lütfen bot başlayana kadar birkaç saniye bekleyin..."
+        "**Yeniden başlatma işlemi başladı, lütfen bot başlayana kadar birkaç saniye bekleyin...**"
     )
     os.system(f"kill -9 {os.getpid()} && python3 -m YukkiMusic")
