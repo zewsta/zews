@@ -24,11 +24,11 @@ loop = asyncio.get_event_loop()
 
 async def init():
     if len(config.STRING_SESSIONS) == 0:
-        logger.error("No Assistant Clients Vars Defined!.. Exiting Process.")
+        logger.error("Tanımlanmış Asistan İstemci Sayısı Yok.. Çıkış İşlemi.")
         return
     if not config.SPOTIFY_CLIENT_ID and not config.SPOTIFY_CLIENT_SECRET:
         logger.warning(
-            "No Spotify Vars defined. Your bot won't be able to play spotify queries."
+            "Tanımlanmış Spotify Vars yok. Botunuz spotify sorgularını oynatamayacak."
         )
     try:
         users = await get_gbanned()
@@ -50,7 +50,7 @@ async def init():
             result = await app.run_shell_command(["git", "-C", "xtraplugins", "pull"])
             if result["returncode"] != 0:
                 logger.error(
-                    f"Error pulling updates for extra plugins: {result['stderr']}"
+                    f"Ekstra eklentiler için hata eklentileri güncellemeleri: {result['stderr']}"
                 )
                 exit()
         else:
@@ -58,36 +58,36 @@ async def init():
                 ["git", "clone", config.EXTRA_PLUGINS_REPO, "xtraplugins"]
             )
             if result["returncode"] != 0:
-                logger.error(f"Error cloning extra plugins: {result['stderr']}")
+                logger.error(f"Ekstra eklentiler klonlanırken hata oluştu: {result['stderr']}")
                 exit()
 
         req = os.path.join("xtraplugins", "requirements.txt")
         if os.path.exists(req):
             result = await app.run_shell_command(["pip", "install", "-r", req])
             if result["returncode"] != 0:
-                logger.error(f"Error installing requirements: {result['stderr']}")
+                logger.error(f"Gereksinimleri yüklerken hata oluştu: {result['stderr']}")
 
         for mod in app.load_plugins_from("xtraplugins"):
             if mod and hasattr(mod, "__MODULE__") and mod.__MODULE__:
                 if hasattr(mod, "__HELP__") and mod.__HELP__:
                     HELPABLE[mod.__MODULE__.lower()] = mod
 
-    LOGGER("YukkiMusic.plugins").info("Successfully Imported All Modules ")
+    LOGGER("YukkiMusic.plugins").info("Tüm Modüller Başarıyla İçe Aktarıldı")
     await userbot.start()
     await Yukki.start()
-    LOGGER("YukkiMusic").info("Assistant Started Sucessfully")
+    LOGGER("YukkiMusic").info("Asistan Başarıyla Başladı")
     try:
         await Yukki.stream_call(
             "http://docs.evostream.com/sample_content/assets/sintel1m720p.mp4"
         )
     except NoActiveGroupCall:
         LOGGER("YukkiMusic").error(
-            "Please ensure the voice call in your log group is active."
+            "Lütfen log grubunuzdaki sesli aramanın etkin olduğundan emin olun."
         )
         exit()
 
     await Yukki.decorators()
-    LOGGER("YukkiMusic").info("YukkiMusic Started Successfully")
+    LOGGER("YukkiMusic").info("YukkiMusic Başarıyla Başladı")
     await idle()
     await app.stop()
     await userbot.stop()
@@ -95,4 +95,4 @@ async def init():
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("YukkiMusic").info("Stopping YukkiMusic! GoodBye")
+    LOGGER("YukkiMusic").info("YukkiMusic Durdu! Hoşça kal")
