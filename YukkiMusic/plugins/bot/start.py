@@ -202,7 +202,7 @@ async def start_comm(client, message: Message, _):
                 sender_name = message.from_user.first_name
                 return await app.send_message(
                     config.LOG_GROUP_ID,
-                    f"{message.from_user.mention} #Botu_Başlattı\n\n**Kullanıcı ID:** {sender_id}\n**Kullanıcı Adı** {sender_name}",
+                    f"🎉 **Yeni Bir Kullanıcı Botu Başlattı. #Start_Verdi**\n\n🔖 **Kullanıcı:** {message.from_user.mention}\n🆔 **Kullanıcı ID:** {sender_id}\n👤 **Kullanıcı Adı** {sender_name}",
                 )
     else:
         try:
@@ -233,7 +233,7 @@ async def start_comm(client, message: Message, _):
             sender_name = message.from_user.first_name
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"{message.from_user.mention} #Botu_Başlattı\n\n**Kullanıcı ID:** {sender_id}\n**Kullanıcı Adı:** {sender_name}",
+                f"🎉 **Yeni Bir Kullanıcı Botu Başlattı. #Start_Verdi**\n\n**🔖 Kullanıcı:** {message.from_user.mention}\n\n🆔 **Kullanıcı ID:** {sender_id}\n👤 **Kullanıcı Adı:** {sender_name}",
             )
 
 
