@@ -105,7 +105,7 @@ async def gstats_global(client, message: Message, _):
         vidid,
     ) = await Platform.youtube.details(videoid, True)
     title = title.title()
-    final = f"Top played Tracks on  {app.mention}\n\n**Title:** {title}\n\nPlayed** {co} **times"
+    final = f"{app.mention} üzerinde en çok çalınan parçalar\n\n**🔮 Başlık:** {title}\n\n**{co} Kez Oynandı**"
     upl = get_stats_markup(_, True if message.from_user.id in SUDOERS else False)
     await app.send_photo(
         message.chat.id,
@@ -171,9 +171,9 @@ async def top_users_ten(client, CallbackQuery: CallbackQuery, _):
                 details = stats.get(items)
                 title = (details["title"][:35]).title()
                 if items == "telegram":
-                    msg += f"🔗[TelegramVideos and media's](https://t.me/telegram) ** Played {count} Times**\n\n"
+                    msg += f"🔗[Telegram Videoları ve medyaları](https://t.me/telegram) **{count} Kez Oynandı**\n\n"
                 else:
-                    msg += f"🔗 [{title}](https://www.youtube.com/watch?v={items}) ** Played {count} Times**\n\n"
+                    msg += f"🔗 [{title}](https://www.youtube.com/watch?v={items}) **{count} Kez Oynandı**\n\n"
 
             temp = (
                 _["gstats_4"].format(
@@ -211,7 +211,7 @@ async def top_users_ten(client, CallbackQuery: CallbackQuery, _):
             except Exception:
                 continue
             limit += 1
-            msg += f"🔗`{extract}` Played {count} Times on bot.\n\n"
+            msg += f"🔗`{extract}` Botta {count} Kez oynandı.\n\n"
         temp = (
             _["gstats_5"].format(limit, app.mention)
             if what == "Chats"
@@ -253,25 +253,25 @@ async def overall_stats(client, CallbackQuery, _):
     song = config.SONG_DOWNLOAD_DURATION
     play_duration = config.DURATION_LIMIT_MIN
     if config.AUTO_LEAVING_ASSISTANT:
-        ass = "Yes"
+        ass = "Evet"
     else:
-        ass = "No"
-    text = f"""**Bot's Stats and information:**
+        ass = "Hayır"
+    text = f"""**Botun istatistikleri ve bilgileri:**
 
-**Imported Modules:** {mod}
-**Served chats:** {served_chats} 
-**Served Users:** {served_users} 
-**Blocked Users:** {blocked} 
-**Sudo Users:** {sudoers} 
+**İçe Aktarılan Modüller:** {mod}
+**Katıldığı Sohbetler:** {served_chats} 
+**Hizmet Verilen Kullanıcılar:** {served_users} 
+**Engellenen Kullanıcılar:** {blocked} 
+**Yetkili Kullanıcılar:** {sudoers} 
     
-**Total Queries:** {total_queries} 
-**Total Assistant:** {assistant}
-**Auto Leaving Assistsant:** {ass}
+**Toplam Sorgu Sayısı:** {total_queries} 
+**Toplam Asistan Sayısı:** {assistant}
+**Asistan Otomatik Mi Ayrılsın?:** {ass}
 
-**Play Duration Limit:** {play_duration} ᴍɪɴs
-**Song Download Limit:** {song} ᴍɪɴs
-**Bot's Server Playlist Limit:** {playlist_limit}
-**Playlist Play Limit:** {fetch_playlist}"""
+**Oynatma Süresi Sınırı:** {play_duration} Dakika
+**Müzik İndirme Sınırı:** {song} Dakika
+**Botun Sunucu Oynatma Listesi Sınırı:** {playlist_limit}
+**Oynatma Listesi Oynatma Sınırı:** {fetch_playlist}"""
     med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
     try:
         await CallbackQuery.edit_message_media(media=med, reply_markup=upl)
@@ -285,7 +285,7 @@ async def overall_stats(client, CallbackQuery, _):
 @languageCB
 async def overall_stats(client, CallbackQuery, _):
     if CallbackQuery.from_user.id not in SUDOERS:
-        return await CallbackQuery.answer("ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀ's", show_alert=True)
+        return await CallbackQuery.answer("Sadece Yetkililer İçin", show_alert=True)
     callback_data = CallbackQuery.data.strip()
     what = callback_data.split(None, 1)[1]
     if what != "s":
@@ -308,7 +308,7 @@ async def overall_stats(client, CallbackQuery, _):
         else:
             cpu_freq = f"{round(cpu_freq, 2)}MHz"
     except Exception:
-        cpu_freq = "Unable to Fetch"
+        cpu_freq = "Getirilemiyor"
     hdd = psutil.disk_usage("/")
     total = hdd.total / (1024.0**3)
     total = str(total)
@@ -330,31 +330,31 @@ async def overall_stats(client, CallbackQuery, _):
     total_queries = await get_queries()
     blocked = len(BANNED_USERS)
     sudoers = len(await get_sudoers())
-    text = f""" **Bot Stats and information:**
+    text = f""" **Bot istatistikleri ve bilgileri:**
 
-**Imported modules:** {mod}
+**İçe Aktarılan Modüller:** {mod}
 **Platform:** {sc}
-**Ram:** {ram}
-**Physical Cores:** {p_core}
-**Total Cores:** {t_core}
-**Cpu frequency:** {cpu_freq}
+**Bellek Kapasitesi:** {ram}
+**Fiziksel Çekirdek Sayısı:** {p_core}
+**Toplam Çekirdek Sayısı:** {t_core}
+**İşlemci Frekansı:** {cpu_freq}
 
-**Python Version:** {pyver.split()[0]}
-**Pyrogram Version:** {pyrover}
-**Py-tgcalls Version:** {pytgver}
-**Total Storage:** {total[:4]} ɢiʙ
-**Storage Used:** {used[:4]} ɢiʙ
-**Storage Left:** {free[:4]} ɢiʙ
+**Python Sürümü:** {pyver.split()[0]}
+**Kurigram Sürümü:** {pyrover}
+**Py-TgCalls Sürümü:** {pytgver}
+**Toplam Depolama Alanı:** {total[:4]} GB
+**Kullanılan Depolama Alanı:** {used[:4]} GB
+**Kalan Depolama Alanı:** {free[:4]} GB
 
-**Served chats:** {served_chats} 
-**Served users:** {served_users} 
-**Blocked users:** {blocked} 
-**Sudo users:** {sudoers} 
+**Katıldığı Sohbetler:** {served_chats} 
+**Hizmet Verilen Kullanıcılar:** {served_users} 
+**Engellenen Kullanıcılar:** {blocked} 
+**Yetkili Kullanıcılar:** {sudoers} 
 
-**Total DB Storage:** {storage} ᴍʙ
-**Total DB Collection:** {collections}
-**Total DB Keys:** {objects}
-**Total Bot Queries:** `{total_queries} `
+**Toplam Veritabanı Depolama Alanı:** {storage} MB
+**Toplam Veritabanı Koleksiyonu:** {collections}
+**Toplam Veritabanı Anahtarları:** {objects}
+**Toplam Oynatılan Müzik Sayısı:** `{total_queries} `
     """
     med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
     try:
