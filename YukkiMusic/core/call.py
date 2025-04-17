@@ -320,16 +320,16 @@ class Call:
             except Exception as e:
                 LOGGER(__name__).error("\n", exc_info=True)
                 raise AssistantErr(
-                    "**No Active Voice Chat Found**\n\nPlease make sure group's voice chat is enabled. If already enabled, please end it and start fresh voice chat again and if the problem continues, try /restart"
+                    "**Aktif Sesli Sohbet Bulunamadı**\n\nLütfen grubun sesli sohbetinin etkin olduğundan emin olun. Zaten etkinse, lütfen sonlandırın ve yeni sesli sohbeti tekrar başlatın ve sorun devam ederse /restart'ı deneyin."
                 )
 
         except NoActiveGroupCall:
             raise AssistantErr(
-                "**No Active Voice Chat Found**\n\nPlease make sure group's voice chat is enabled. If already enabled, please end it and start fresh voice chat again and if the problem continues, try /restart"
+                "**Aktif Sesli Sohbet Bulunamadı**\n\nLütfen grubun sesli sohbetinin etkin olduğundan emin olun. Zaten etkinse, lütfen sonlandırın ve yeni sesli sohbeti tekrar başlatın ve sorun devam ederse /restart'ı deneyin."
             )
         except TelegramServerError:
             raise AssistantErr(
-                "**TELEGRAM SERVER ERROR**\n\nPlease restart Your voicechat."
+                "**Telegram Sunucu Hatası**\n\nLütfen sesli sohbeti yeniden başlatın."
             )
         await add_active_chat(chat_id)
         await music_on(chat_id)
@@ -622,12 +622,12 @@ class Call:
         if pings:
             return str(round(sum(pings) / len(pings), 3))
         else:
-            LOGGER(__name__).error("No active clients for ping calculation.")
-            return "No active clients"
+            LOGGER(__name__).error("Ping hesaplaması için aktif istemci yok.")
+            return "Aktif istemci yok"
 
     async def start(self):
-        """Starts all PyTgCalls instances for the existing userbot clients."""
-        LOGGER(__name__).info(f"Starting PyTgCall Clients")
+        """Mevcut userbot istemcileri için tüm PyTgCalls örneklerini başlatır."""
+        LOGGER(__name__).info(f"PyTgCalls Başlatıldı")
         await asyncio.gather(*[c.start() for c in self.calls])
 
     async def decorators(self):
@@ -646,13 +646,13 @@ class Call:
     def __getattr__(self, name):
         if not self.calls:
             raise AttributeError(
-                f"'{type(self).__name__}' object has no attribute '{name}'"
+                f"'{type(self).__name__}' nesnesinin özniteliği yoktur '{name}'"
             )
         first_call = self.calls[0]
         if hasattr(first_call, name):
             return getattr(first_call, name)
         raise AttributeError(
-            f"'{type(first_call).__name__}' object has no attribute '{name}'"
+            f"'{type(first_call).__name__}' nesnesinin özniteliği yoktur '{name}'"
         )
 
 
