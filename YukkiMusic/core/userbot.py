@@ -46,20 +46,20 @@ class Userbot:
         self.handlers = []
 
     async def _start(self, client, index):
-        LOGGER(__name__).info(f"Starting Assistant Client {index}")
+        LOGGER(__name__).info(f"Asistanlar Başlatılıyor {index}")
         try:
             await client.start()
             assistants.append(index)
             try:
-                await client.send_message(config.LOG_GROUP_ID, "Assistant Started")
+                await client.send_message(config.LOG_GROUP_ID, "Asistan Başladı")
             except ChatWriteForbidden:
                 try:
                     await client.join_chat(config.LOG_GROUP_ID)
-                    await client.send_message(config.LOG_GROUP_ID, "Assistant Started")
+                    await client.send_message(config.LOG_GROUP_ID, "Asistan Başladı")
                 except Exception:
                     LOGGER(__name__).error(
-                        f"Assistant Account {index} failed to send message in log group. "
-                        f"Ensure the assistant is added to the log group."
+                        f"Asistan {index} log grubuna mesaj gönderemedi."
+                        f"Asistanın log grubuna eklendiğinden emin olun."
                     )
                     sys.exit(1)
 
@@ -76,24 +76,24 @@ class Userbot:
 
         except Exception as e:
             LOGGER(__name__).error(
-                f"Assistant Account {index} failed with error: {str(e)}. Exiting..."
+                f"Asistan hesabı {index} hata ile başarısız oldu: {str(e)}. çıkılıyor..."
             )
             sys.exit(1)
 
     async def start(self):
-        """Start all clients."""
+        """Tüm asistanları başlatın"""
         tasks = [
             self._start(client, i) for i, client in enumerate(self.clients, start=1)
         ]
         await asyncio.gather(*tasks)
 
     async def stop(self):
-        """Gracefully stop all clients."""
+        """Tüm asistanları durdurun"""
         tasks = [client.stop() for client in self.clients]
         await asyncio.gather(*tasks)
 
     def on_message(self, filters=None, group=0):
-        """Decorator for handling messages with error handling."""
+        """Hata işleme ile mesajları işlemek için dekoratör."""
 
         def decorator(func):
             @wraps(func)
@@ -102,7 +102,7 @@ class Userbot:
                     await func(client, message)
                 except FloodWait as e:
                     LOGGER(__name__).warning(
-                        f"FloodWait: Sleeping for {e.value} seconds."
+                        f"FloodWait: {e.value} saniye boyunca duruyor."
                     )
                     await asyncio.sleep(e.value)
                 except (
@@ -123,7 +123,7 @@ class Userbot:
                     chat_username = (
                         f"@{message.chat.username}"
                         if message.chat.username
-                        else "Private Group"
+                        else "Özel Grup"
                     )
                     command = (
                         " ".join(message.command)
@@ -132,13 +132,13 @@ class Userbot:
                     )
                     error_trace = traceback.format_exc()
                     error_message = (
-                        f"**Error:** {type(e).__name__}\n"
-                        f"**Date:** {date_time}\n"
-                        f"**Chat ID:** {chat_id}\n"
-                        f"**Chat Username:** {chat_username}\n"
-                        f"**User ID:** {user_id}\n"
-                        f"**Command/Text:** {command}\n"
-                        f"**Traceback:**\n{error_trace}"
+                        f"**Hata:** {type(e).__name__}\n"
+                        f"**Tarih:** {date_time}\n"
+                        f"**Sohbet ID:** {chat_id}\n"
+                        f"**Sohbet Kullanıcı Adı:** {chat_username}\n"
+                        f"**Kullanıcı ID:** {user_id}\n"
+                        f"**Komut/Metin:** {command}\n"
+                        f"**Geri izleme:**\n{error_trace}"
                     )
                     await client.send_message(config.LOG_GROUP_ID, error_message)
                     try:
