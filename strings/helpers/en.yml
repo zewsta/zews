@@ -1,11 +1,23 @@
 Oynatma Komutları: |
-  <b>Auth Users can use Admin commands without admin rights in your chat.</b>
+ <b>✭ Burdaki Komutları Normal Üyelerinde Kullanabilmesi İçin İstediğiniz Kişinin Mesajını Yanıtlayarak /yetkilendir Yazmanız Yeterlidir.</b>
+ 
+  <b>✧ /oynat veya /play : Müziği Oynatmaya Yarar.</b>
+  <b>✧ /voynat veya /vplay : Videoyu Seste Oynatmaya Yarar.</b>
+  <b>✧ /dongu : Çalan Müziği Döngüye Alıp Tekrar Oynatır.</b>
+  <b>✧ /duraklat : Müziği Duraklatır.</b>
+  <b>✧ /devam : Müziği Devam Ettirir.</b>
+  <b>✧ /atla : Çalan Müziği Atlar.</b>
+  <b>✧ /bitir veya /son : Müziği Tamamen Durdurur.</b>
+  <b>✧ /karistir : Sıraya Aldığınız Parçaları Karışık Şekilde Oynatır.</b>
+  <b>✧ /ilerisar : Müziği İleri Sarar. (Örnek: /ilerisar 15 İle Çalan Müziği 15 Saniye İleri Alabilirsiniz.)</b>
+  <b>✧ /gerisar : Müziği Geri Sarar. (Örnek: /seekback 15 İle Çalan Müziği 15 Saniye Geri Alabilirsiniz.)</b>
+  <b>✧ /restart : Botu Yeniden Başlatır.</b>
 
-  <b>✧ </b> [Username] - Add a user to AUTH LIST of the Group.
+  <b><u>✭ Oynatma Listeleri:</u></b>
 
-  <b>✧ </b> [Username] - Remove a user from AUTH LIST of the group.
-
-  <b>✧ </b> - Check AUTH LIST of the Group.
+  <b>✧ /playlist : Oynatma Listenizde Hangi Müziklerin Olduğuna Bakabilirsiniz.</b>
+  <b>✧ /listemisil :** Oynatma Listenizden Silmek İstediğiniz Müziği Seçebilirsiniz.</b>
+  <b>✧ /oynat Komutunu Tek Başına Kullanırsanız:** Oynatma Listeleri Ekranına Ulaşırsınız.</b>
 
 Bot Komutları: |
   <b>✧ {0}</b> - Check active voice chats on the bot.
