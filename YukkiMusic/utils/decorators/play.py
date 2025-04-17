@@ -41,7 +41,7 @@ def PlayWrapper(command):
                 [
                     [
                         InlineKeyboardButton(
-                            text="How to Fix ?",
+                            text="Nasıl düzeltilir ?",
                             callback_data="AnonymousAdmin",
                         ),
                     ]
@@ -56,7 +56,7 @@ def PlayWrapper(command):
         if PRIVATE_BOT_MODE:
             if not await is_served_private_chat(message.chat.id):
                 await message.reply_text(
-                    "**PRIVATE MUSIC BOT**\n\nOnly For Authorized chats from the owner ask my owner to allow your chat first."
+                    "**ÖZEL MÜZIK BOT**\n\nYalnızca yetkili sohbetler için, sahibimden önce sohbetinize izin vermesini isteyin."
                 )
                 return await app.leave_chat(message.chat.id)
         if await is_commanddelete_on(message.chat.id):
@@ -102,7 +102,7 @@ def PlayWrapper(command):
             is_call_active = (await app.get_chat(chat_id)).is_call_active
             if not is_call_active:
                 return await message.reply_text(
-                    "**No active video chat found **\n\nPlease make sure you started the voicechat."
+                    "**Aktif sesli sohbet bulunamadı**\n\nLütfen sesli sohbeti başlattığınızdan emin olun."
                 )
         except Exception:
             pass
