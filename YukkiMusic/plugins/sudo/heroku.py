@@ -219,13 +219,13 @@ async def usage_dynos(client, message, _):
     AppMinutes = math.floor(AppQuotaUsed % 60)
     await asyncio.sleep(1.5)
     text = f"""
-**Dyno usage**
+**Dyno kullanımı**
 
-<u>Usage:</u>
-Total used: `{AppHours}`**h**  `{AppMinutes}`**m**  [`{AppPercentage}`**%**]
+<u>Kullanım:</u>
+Toplam kullanılan: `{AppHours}`**S**  `{AppMinutes}`**D**  [`{AppPercentage}`**%**]
 
-<u>Remaining Quota</u>
-Total Left: `{hours}`**h**  `{minutes}`**m**  [`{percentage}`**%**]"""
+<u>Kalan Kota</u>
+Toplam Kalan: `{hours}`**S**  `{minutes}`**D**  [`{percentage}`**%**]"""
     return await dyno.edit(text)
 
 
@@ -256,16 +256,16 @@ async def update_(client, message, _):
         "tsnrhtdd"[(format // 10 % 10 != 1) * (format % 10 < 4) * format % 10 :: 4],
     )
     updates = "".join(
-        f"<b>➣ #{info.count()}: <a href={REPO_}/commit/{info}>{info.summary}</a> By -> {info.author}</b>\n\t\t\t\t<b>➥ Commited On:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
+        f"<b>➫ #{info.count()}: <a href={REPO_}/taahhüt/{info}>{info.summary}</a> tarafından -> {info.author}</b>\n\t\t\t\t<b>➥ Taahhüt Edildi:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
         for info in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}")
     )
-    _update_response_ = "**A new upadte is available for the Bot! **\n\n➣ Pushing upadtes Now\n\n__**Updates:**__\n"
+    _update_response_ = "**Bot için yeni bir güncelleme mevcut!**\n\n➫ Güncellemeler şimdi gönderiliyor\n\n__**Güncellemeler:**__\n"
     _final_updates_ = f"{_update_response_} {updates}"
 
     if len(_final_updates_) > 4096:
         url = await Yukkibin(updates)
         nrs = await response.edit(
-            f"**A new upadte is available for the Bot!**\n\n➣ Pushing upadtes Now\n\n__**Updates:**__\n\n[Check Upadtes]({url})",
+            f"**Bot için yeni bir güncelleme mevcut!**\n\n➣ Güncellemeler şimdi gönderiliyor\n\n__**Güncellemeler:**__\n\n[Güncellemeleri Kontrol Edin]({url})",
             disable_web_page_preview=True,
         )
     else:
@@ -278,7 +278,7 @@ async def update_(client, message, _):
             try:
                 await app.send_message(
                     chat_id=int(x),
-                    text="{} Is upadted herself\n\nYou can start playing after 15-20 Seconds".format(
+                    text="{} **Kendini güncelliyor...**\n\n**15-20 saniye sonra çalmaya başlayabilirsiniz.**".format(
                         app.mention
                     ),
                 )
@@ -288,7 +288,7 @@ async def update_(client, message, _):
                 pass
         await response.edit(
             _final_updates_
-            + f"» Bot Upadted Sucessfully Now wait until the bot starts",
+            + f"» **Bot başarıyla güncellendi, şimdi bot başlayana kadar bekleyin.**",
             disable_web_page_preview=True,
         )
     except Exception:
@@ -302,11 +302,11 @@ async def update_(client, message, _):
             return
         except Exception as err:
             await response.edit(
-                f"{nrs.text}\n\nSomething went wrong, Please check logs"
+                f"{nrs.text}\n\nBir şeyler ters gitti, Lütfen logları kontrol edin"
             )
             return await app.send_message(
                 chat_id=config.LOGGER_ID,
-                text="An exception occurred #updater due to : <code>{}</code>".format(
+                text="Bir istisna oluştu #updater nedeniyle : <code>{}</code>".format(
                     err
                 ),
             )
@@ -320,7 +320,7 @@ async def update_(client, message, _):
 @AdminActual
 async def reboot(client, message: Message, _):
     mystic = await message.reply_text(
-        f"Please Wait... \nRebooting{app.mention} For Your Chat."
+        f"**Lütfen bekleyin...\n{app.mention} sohbetiniz için yeniden başlatılıyor.**"
     )
     await asyncio.sleep(1)
     try:
@@ -339,7 +339,7 @@ async def reboot(client, message: Message, _):
             await Yukki.stop_stream(chat_id)
         except Exception:
             pass
-    return await mystic.edit_text("Sucessfully Restarted \nTry playing Now..")
+    return await mystic.edit_text("**Başarıyla Yeniden Başlatıldı.\nŞimdi oynatmayı deneyin..**")
 
 
 @app.on_message(command("RESTART_COMMAND") & ~BANNED_USERS)
@@ -348,13 +348,13 @@ async def restart_(client, message):
         if message.chat.type not in [ChatType.GROUP, ChatType.SUPERGROUP]:
             return
         return await reboot(client, message)
-    response = await message.reply_text("Restarting...")
+    response = await message.reply_text("Yeniden başlatılıyor.")
     ac_chats = await get_active_chats()
     for x in ac_chats:
         try:
             await app.send_message(
                 chat_id=int(x),
-                text=f"{app.mention} Is restarting...\n\nYou can start playing after 15-20 seconds",
+                text=f"{app.mention} Yeniden başlatılıyor...\n\n15-20 saniye sonra çalmaya başlayabilirsiniz.",
             )
             await remove_active_chat(x)
             await remove_active_video_chat(x)
@@ -368,6 +368,6 @@ async def restart_(client, message):
     except Exception:
         pass
     await response.edit_text(
-        "Restart process started, please wait for few seconds until the bot starts..."
+        "Yeniden başlatma işlemi başladı, lütfen bot başlayana kadar birkaç saniye bekleyin..."
     )
     os.system(f"kill -9 {os.getpid()} && python3 -m YukkiMusic")
