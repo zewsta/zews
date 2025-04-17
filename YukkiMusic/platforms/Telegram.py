@@ -139,7 +139,7 @@ class Telegram:
                     [
                         [
                             InlineKeyboardButton(
-                                text="🚦 Cancel downloading",
+                                text="🚦 İndirmeyi iptal et",
                                 callback_data="stop_downloading",
                             ),
                         ]
@@ -158,14 +158,14 @@ class Telegram:
                     completed_size = convert_bytes(current)
                     speed = convert_bytes(speed)
                     text = f"""
-**{app.mention} Telagram Media Downloader**
+**{app.mention} Telagram Medya İndirici**
 
-**Total file size:** {total_size}
-**Completed:** {completed_size} 
-**Percentage:** {percentage[:5]}%
+**Toplam dosya boyutu:** {total_size}
+**Tamamlanan:** {completed_size} 
+**İlerleme:** {percentage[:5]}%
 
-**Speed:** {speed}/s
-**Elapsed Time:** {eta}"""
+**Hız:** {speed}/s
+**Geçen Zaman:** {eta}"""
                     try:
                         await mystic.edit_text(text, reply_markup=upl)
                     except Exception:
@@ -184,7 +184,7 @@ class Telegram:
                     progress=progress,
                 )
                 await mystic.edit_text(
-                    "Sucessfully Downloaded\n Processing File Now..."
+                    "Başarıyla İndirildi\nDosya Şimdi İşleniyor..."
                 )
                 downloader.pop(message.id, None)
             except Exception:
