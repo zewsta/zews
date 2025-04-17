@@ -46,7 +46,7 @@ from ..logging import LOGGER
 
 class YukkiBot(Client):
     def __init__(self, *args, **kwargs):
-        LOGGER(__name__).info("Starting Bot...")
+        LOGGER(__name__).info("Bot Başlatılıyor...")
 
         super().__init__(*args, **kwargs)
         self.loaded_plug_counts = 0
@@ -59,7 +59,7 @@ class YukkiBot(Client):
                     await func(client, message)
                 except FloodWait as e:
                     LOGGER(__name__).warning(
-                        f"FloodWait: Sleeping for {e.value} seconds."
+                        f"FloodWait: {e.value} Saniye Boyunca Bekle."
                     )
                     await asyncio.sleep(e.value)
                 except (
@@ -79,18 +79,18 @@ class YukkiBot(Client):
                     chat_username = (
                         f"@{message.chat.username}"
                         if message.chat.username
-                        else "Private Group"
+                        else "Özel Grup"
                     )
                     command = message.text
                     error_trace = traceback.format_exc()
                     error_message = (
-                        f"<b>Error:</b> {type(e).__name__}\n"
-                        f"<b>Date:</b> {date_time}\n"
-                        f"<b>Chat ID:</b> {chat_id}\n"
-                        f"<b>Chat Username:</b> {chat_username}\n"
-                        f"<b>User ID:</b> {user_id}\n"
-                        f"<b>Command/Text:</b>\n<pre language='python'><code>{command}</code></pre>\n\n"
-                        f"<b>Traceback:</b>\n<pre language='python'><code>{error_trace}</code></pre>"
+                        f"<b>Hata:</b> {type(e).__name__}\n"
+                        f"<b>Tarih:</b> {date_time}\n"
+                        f"<b>Sohbet ID:</b> {chat_id}\n"
+                        f"<b>Sohbet Kullanıcı Adı:</b> {chat_username}\n"
+                        f"<b>Kullanıcı ID:</b> {user_id}\n"
+                        f"<b>Komut/Metin:</b>\n<pre language='python'><code>{command}</code></pre>\n\n"
+                        f"<b>Geri İzleme:</b>\n<pre language='python'><code>{error_trace}</code></pre>"
                     )
                     await self.send_message(config.LOG_GROUP_ID, error_message)
                     try:
@@ -116,40 +116,39 @@ class YukkiBot(Client):
             await self.send_message(
                 config.LOG_GROUP_ID,
                 text=(
-                    f"<u><b>{self.mention} Bot Started :</b></u>\n\n"
-                    f"Id : <code>{self.id}</code>\n"
-                    f"Name : {self.name}\n"
-                    f"Username : @{self.username}"
+                    f"<u><b>{self.mention} Bot Başlatıldı :</b></u>\n\n"
+                    f"ID : <code>{self.id}</code>\n"
+                    f"İsim : {self.name}\n"
+                    f"Kullanıcı Adı : @{self.username}"
                 ),
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
-                "Bot failed to access the log group. Ensure the bot is added and promoted as admin."
+                "Bot günlük grubuna erişemedi. Botun eklendiğinden ve yönetici olarak yükseltildiğinden emin olun."
             )
-            LOGGER(__name__).error("Error details:", exc_info=True)
+            LOGGER(__name__).error("Hata ayrıntıları:", exc_info=True)
             exit()
         if config.SET_CMDS:
             try:
                 await self._set_default_commands()
             except Exception as e:
-                LOGGER(__name__).warning("Failed to set commands:", exc_info=True)
+                LOGGER(__name__).warning("Komutlar ayarlanamadı:", exc_info=True)
 
         try:
             a = await self.get_chat_member(config.LOG_GROUP_ID, "me")
             if a.status != ChatMemberStatus.ADMINISTRATOR:
-                LOGGER(__name__).error("Please promote bot as admin in logger group")
+                LOGGER(__name__).error("Lütfen botu logger grubunda yönetici olarak tanıtın")
                 exit()
         except Exception:
             pass
-        LOGGER(__name__).info(f"MusicBot started as {self.name}")
+        LOGGER(__name__).info(f"Müzik Botu {self.name} Olarak Başlatıldı.")
 
     async def _set_default_commands(self):
         private_commands = [
-            BotCommand("start", "Start the bot"),
-            BotCommand("help", "Get the help menu"),
-            BotCommand("ping", "Check if the bot is alive or dead"),
+            BotCommand("start", "Botu Başlatır"),
+            BotCommand("yardim", "Yardım Menüsünü Açar"),
         ]
-        group_commands = [BotCommand("play", "Start playing requested song")]
+        group_commands = [BotCommand("oynat", "İstenen şarkıyı çalmaya başla")]
         admin_commands = [
             BotCommand("play", "Start playing requested song"),
             BotCommand("skip", "Move to next track in queue"),
