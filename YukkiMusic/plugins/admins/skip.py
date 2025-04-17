@@ -21,7 +21,6 @@ from YukkiMusic.misc import db
 from YukkiMusic.utils import fallback
 from YukkiMusic.utils.database import get_loop
 from YukkiMusic.utils.decorators import AdminRightsCheck
-from YukkiMusic.utils.inline.play import stream_markup, telegram_markup
 from YukkiMusic.utils.stream.autoclear import auto_clean
 from YukkiMusic.utils.thumbnails import gen_thumb
 
@@ -121,14 +120,12 @@ async def skip(cli, message: Message, _, chat_id):
             await Yukki.skip_stream(chat_id, link, video=status)
         except Exception:
             return await message.reply_text(_["call_7"])
-        button = telegram_markup(_, chat_id)
         img = None
         run = await message.reply_text(
             text=_["stream_1"].format(
                 user,
                 f"https://t.me/{app.username}?start=info_{videoid}",
             ),
-            reply_markup=InlineKeyboardMarkup(button),
         )
         db[chat_id][0]["mystic"] = run
         db[chat_id][0]["markup"] = "tg"
@@ -166,7 +163,6 @@ async def skip(cli, message: Message, _, chat_id):
         except Exception:
             return await mystic.edit_text(_["call_7"])
         check[0]["dur"] = duration_min
-        button = stream_markup(_, videoid, chat_id)
         img = None
         run = await message.reply_text(
             text=_["stream_1"].format(
@@ -175,7 +171,6 @@ async def skip(cli, message: Message, _, chat_id):
                 duration_min,
                 user,
             ),
-            reply_markup=InlineKeyboardMarkup(button),
         )
         db[chat_id][0]["mystic"] = run
         db[chat_id][0]["markup"] = "stream"
@@ -185,10 +180,8 @@ async def skip(cli, message: Message, _, chat_id):
             await Yukki.skip_stream(chat_id, videoid, video=status)
         except Exception:
             return await message.reply_text(_["call_7"])
-        button = telegram_markup(_, chat_id)
         run = await message.reply_text(
             text=_["stream_2"].format(user),
-            reply_markup=InlineKeyboardMarkup(button),
         )
         db[chat_id][0]["mystic"] = run
         db[chat_id][0]["markup"] = "tg"
@@ -198,37 +191,30 @@ async def skip(cli, message: Message, _, chat_id):
         except Exception:
             return await message.reply_text(_["call_7"])
         if videoid == "telegram":
-            button = telegram_markup(_, chat_id)
             run = await message.reply_text(
                 text=_["stream_1"].format(
                     title, config.SUPPORT_GROUP, check[0]["dur"], user
                 ),
-                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
         elif videoid == "soundcloud":
-            button = telegram_markup(_, chat_id)
             run = await message.reply_text(
                 text=_["stream_1"].format(
                     title, config.SUPPORT_GROUP, check[0]["dur"], user
                 ),
-                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
         elif "saavn" in videoid:
-            button = telegram_markup(_, chat_id)
             url = check[0]["url"]
             details = None
             run = await message.reply_text(
                 text=_["stream_1"].format(title, url, check[0]["dur"], user),
-                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
         else:
-            button = stream_markup(_, videoid, chat_id)
             img = None
             run = await message.reply_text(
                 text=_["stream_1"].format(
@@ -237,7 +223,6 @@ async def skip(cli, message: Message, _, chat_id):
                     duration_min,
                     user,
                 ),
-                reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "stream"
