@@ -1,4 +1,4 @@
-name : 🏴󠁧󠁢󠁥󠁮󠁧󠁿 English
+name : 🇹🇷 Türkçe
 
 # General Strings
 general_1 : "🔄 **Bir Kullanıcının Mesajını Yanıtlayın Veya Kullanıcı Adı/ID Yazın.**"
@@ -36,15 +36,15 @@ auth_8 : "┗ Ekleyen:-"
 
 # PLUGINS - Admins
 admin_1 : "🎶➻ Müzik zaten duraklatıldı."
-admin_2 : "🎶➻ **Müzik {} tarafından duraklatıldı!**"
+admin_2 : "🎧 **Müzik {} Tarafından Duraklatıldı!**"
 admin_3 : "🎶➻ Müzik zaten devam ettirildi."
-admin_4 : "🎶➻ **Müzik {} tarafından devam ettirildi!**"
+admin_4 : "🎧 **Müzik {} Tarafından Devam Ettirildi!**"
 admin_5 : "🔇➻ Müzik zaten sessize alındı."
-admin_6 : "🔇➻ **Müzik {} tarafından sessize alındı!**"
+admin_6 : "🔇 **Müzik {} Tarafından Sessize Alındı!**"
 admin_7 : "🔊➻ Müzik zaten sessize alındı."
-admin_8 : "🔊➻ **Müzik {} tarafından sessize alındı!**"
-admin_9 : "⏹️➻ **Müzik {} tarafından sonlandırıldı/durduruldu!**"
-admin_10 : "⏭️➻ **Müzik {} tarafından atlandı! Sırada başka müzik yok!**"
+admin_8 : "🔊 **Müzik {} Tarafından Sessize Alındı!**"
+admin_9 : "⏹️ **Müzik {} Tarafından Sonlandırıldı/Durduruldu!**"
+admin_10 : "⏭️ **Müzik {} Tarafından Atlandı! Sırada Başka Müzik Yok!**"
 admin_11 : "❌ **Akış <u>{0}</u> Olarak Değiştirilirken Hata Oluştu\n\nLütfen /atla Komutunu Tekrar Kullanın.** ❤️‍🔥"
 admin_12 : "🚫 **Döngü Çalmanın Etkinleştirilmesi Nedeniyle Belirli Bir Parçaya Geçilemiyor. Bu Özelliği Kullanmak İçin Lütfen Döngüsel Oynatmayı `/dongu Disable` Üzerinden Devre Dışı Bırakın.**"
 admin_13 : "🔢 **Lütfen 1, 2 Veya 4 Gibi Belirli Parçalar İçin Sayısal Sayılar Kullanın.** 🔮"
