@@ -48,7 +48,7 @@ def AdminRightsCheck(mystic):
                 [
                     [
                         InlineKeyboardButton(
-                            text="How to Fix this? ",
+                            text="Bu nasıl düzeltilir?",
                             callback_data="AnonymousAdmin",
                         ),
                     ]
@@ -104,7 +104,7 @@ def AdminActual(mystic):
                 [
                     [
                         InlineKeyboardButton(
-                            text="How to Fix this?",
+                            text="Bu nasıl düzeltilir?",
                             callback_data="AnonymousAdmin",
                         ),
                     ]
@@ -175,7 +175,7 @@ def ActualAdminCB(mystic):
                             )
 
             except Exception as e:
-                return await CallbackQuery.answer(f"Error: {str(e)}")
+                return await CallbackQuery.answer(f"Hata: {str(e)}")
 
         return await mystic(client, CallbackQuery, _)
 
