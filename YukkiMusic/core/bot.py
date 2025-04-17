@@ -145,44 +145,62 @@ class YukkiBot(Client):
 
     async def _set_default_commands(self):
         private_commands = [
-            BotCommand("start", "Botu Başlatır"),
-            BotCommand("yardim", "Yardım Menüsünü Açar"),
+            BotCommand("start", "🎧 Botu Başlatın"),
+            BotCommand("yardim", "📖 Yardım Menüsünü Açın"),
         ]
-        group_commands = [BotCommand("oynat", "İstenen şarkıyı çalmaya başla")]
+        group_commands = [
+            BotCommand("oynat", "▶️ İstediğiniz Müziği Oynatın"),
+            BotCommand("voynat", "🎦 İstediğiniz Videoyu Oynatın"), 
+            BotCommand("atla", "⏯️ Çalan Müziği Atlayın"),
+            BotCommand("duraklat", "⏸️ Çalan Müziği Duraklatın"),
+            BotCommand("devam", "⏺️ Duraklatılan Müziği Devam Ettirin"),
+            BotCommand("son", "⏹️ Çalan Müziği Sonlandırın"),
+            BotCommand("karistir", "🔀 Sıradaki Müzikleri Karıştırın"),
+            BotCommand("playmode", "⏏️ Oynatma Modunu Ayarlayın"),
+            BotCommand("reload", "❤️‍🔥 Yönetici Listesini Güncelleyin"),
+            BotCommand("indir", "⬇️ Belirtilen Müziği/Videoyu İndirin"),
+            BotCommand("restart", "🚀 Botu Yeniden Başlatın"),
+            BotCommand("ayarlar", "⚙️ Bot Ayarlarını Açın"),
+        ]
         admin_commands = [
-            BotCommand("play", "Start playing requested song"),
-            BotCommand("skip", "Move to next track in queue"),
-            BotCommand("pause", "Pause the current playing song"),
-            BotCommand("resume", "Resume the paused song"),
-            BotCommand("end", "Clear the queue and leave voice chat"),
-            BotCommand("shuffle", "Randomly shuffle the queued playlist"),
-            BotCommand("playmode", "Change the default playmode for your chat"),
-            BotCommand("settings", "Open bot settings for your chat"),
+            BotCommand("oynat", "▶️ İstediğiniz Müziği Oynatın"),
+            BotCommand("voynat", "🎦 İstediğiniz Videoyu Oynatın"), 
+            BotCommand("atla", "⏯️ Çalan Müziği Atlayın"),
+            BotCommand("duraklat", "⏸️ Çalan Müziği Duraklatın"),
+            BotCommand("devam", "⏺️ Duraklatılan Müziği Devam Ettirin"),
+            BotCommand("son", "⏹️ Çalan Müziği Sonlandırın"),
+            BotCommand("karistir", "🔀 Sıradaki Müzikleri Karıştırın"),
+            BotCommand("playmode", "⏏️ Oynatma Modunu Ayarlayın"),
+            BotCommand("reload", "❤️‍🔥 Yönetici Listesini Güncelleyin"),
+            BotCommand("indir", "⬇️ Belirtilen Müziği/Videoyu İndirin"),
+            BotCommand("restart", "🚀 Botu Yeniden Başlatın"),
+            BotCommand("ayarlar", "⚙️ Bot Ayarlarını Açın"),
         ]
+
         owner_commands = [
-            BotCommand("update", "Update the bot"),
-            BotCommand("restart", "Restart the bot"),
-            BotCommand("logs", "Get logs"),
-            BotCommand("export", "Export all data of mongodb"),
-            BotCommand("import", "Import all data in mongodb"),
-            BotCommand("addsudo", "Add a user as a sudoer"),
-            BotCommand("delsudo", "Remove a user from sudoers"),
-            BotCommand("sudolist", "List all sudo users"),
-            BotCommand("log", "Get the bot logs"),
-            BotCommand("getvar", "Get a specific environment variable"),
-            BotCommand("delvar", "Delete a specific environment variable"),
-            BotCommand("setvar", "Set a specific environment variable"),
-            BotCommand("usage", "Get dyno usage information"),
-            BotCommand("maintenance", "Enable or disable maintenance mode"),
-            BotCommand("logger", "Enable or disable logging"),
-            BotCommand("block", "Block a user"),
-            BotCommand("unblock", "Unblock a user"),
-            BotCommand("blacklist", "Blacklist a chat"),
-            BotCommand("whitelist", "Whitelist a chat"),
-            BotCommand("blacklisted", "List all blacklisted chats"),
-            BotCommand("autoend", "Enable or disable auto end for streams"),
-            BotCommand("reboot", "Reboot the bot"),
-            BotCommand("restart", "Restart the bot"),
+            BotCommand("update", "🔃 Botu Güncelle"),
+            BotCommand("restart", "🔄 Botu Yeniden Başlat"),
+            BotCommand("logs", "📳 Logları Al"),
+            BotCommand("export", "📤 Tüm MongoDB Verilerini Dışa Aktar"),
+            BotCommand("import", "📥 Tüm Verileri MongoDB'ye Aktar"),
+            BotCommand("addsudo", "✅ Bir Kullanıcıyı Sudo Listesine Ekle"),
+            BotCommand("delsudo", "❎ Bir Kullanıcıyı Sudo Listesinden Çıkar"),
+            BotCommand("sudolist", "📄 Tüm Sudo Kullanıcılarını Listele"),
+            BotCommand("log", "📋 Bot Loglarını Al"),
+            BotCommand("getvar", "📚 Belirli Bir Var Al"),
+            BotCommand("delvar", "🗳️ Belirli Bir Var Sil"),
+            BotCommand("setvar", "✏️ Belirli Bir Var Ayarla"),
+            BotCommand("usage", "💡 Dyno'yu Kullanma Hakkında Bilgi Edin"),
+            BotCommand("maintenance", "🛠️ Bakım Modunu Aç Veya Kapat"),
+            BotCommand("logger", "🚪 Logu Aç Veya Kapat"),
+            BotCommand("block", "🚫 Bir Kullanıcıyı Engelle"),
+            BotCommand("unblock", "✔️ Bir Kullanıcının Engelini Kaldır"),
+            BotCommand("blacklist", "➕ Kara Listeye Sohbet Ekle"),
+            BotCommand("whitelist", "➖ Beyaz Listeye Sohbet Ekle"),
+            BotCommand("blacklisted", "📳 Kara Listeye Alınmış Tüm Sohbetleri Listele"),
+            BotCommand("autoend", "🔇 Sesli Sohbet İçin Otomatik Sonlandırmayı Aç Veya Kapat"),
+            BotCommand("reboot", "✨ Bota Reboot At"),
+            BotCommand("restart", "🕹️ Botu Yeniden Başlatın"),
         ]
 
         await self.set_bot_commands(
@@ -240,7 +258,7 @@ class YukkiBot(Client):
             self.loaded_plug_counts += 1
         except Exception as e:
             LOGGER(__name__).error(
-                f"Failed to load {module_path}: {e}\n\n", exc_info=True
+                f"{module_path} Yüklenemedi: {e}\n\n", exc_info=True
             )
             exit()
 
@@ -258,7 +276,7 @@ class YukkiBot(Client):
                 spec.loader.exec_module(utils)
             except Exception as e:
                 LOGGER(__name__).error(
-                    f"Failed to load 'utils' module: {e}", exc_info=True
+                    f"'utils' Modülü Yüklenemedi: {e}", exc_info=True
                 )
 
         for root, _, files in os.walk(base_dir):
