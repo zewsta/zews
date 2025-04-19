@@ -75,7 +75,7 @@ admin_34 : "❌➻ **İleri Sarılırken Hata Oluştu.**"
 
 # Start
 start_1: "🔮 **Merhaba {0}'e Hoş Geldiniz.**\n\n**Vortex Müzik Sizlere Hızlı Ve Kesintisiz Müzik Deneyimi Sunar. Grubuna Ekle Ve Müziğin Keyfini Çıkar. ⚡**"
-start_2: "**Merhaba Ben {0}**\n\n**Beni Grubunuza Davet Ettiğiniz İçin Teşekkürler.**\n\n**Çalışmak İçin Sadece Sesli Sohbetleri Yönetme Ve Gruba Davet Etme Yetkisi vermeniz Yeterlidir.**\n\n**Asistan Kullanıcı Adı:** @{1}\n**Asistan ID:** {2}"
+start_2: "**Merhaba Ben {0}**\n\n**Beni Grubunuza Davet Ettiğiniz İçin Teşekkürler.**\n\n**Çalışmak İçin Sadece Sesli Sohbetleri Yönetme Ve Gruba Davet Etme Yetkisi Vermeniz Yeterlidir.**\n\n**Asistan Kullanıcı Adı:** @{1}\n**Asistan ID:** {2}"
 start_3: "**{0}'in Sahibi, {1} Az Önce Grubunuza Katıldı.‌‌** ❤️‍🔥"
 start_4: "**{0} Sudo Kullanıcısı {1} Az Önce Grubunuza Katıldı.‌‌** ⚡"
 start_5: "🦸 **Süper Grup Gerekli** 🦸\n\n**Lütfen Grubunuzu Süper Gruba Dönüştürün Ve Sonra Beni Geri Ekleyin.**\n\n**Süper Grup Nasıl Yapılır?**\n🥱 **Grubunuzun Sohbet Geçmişini Bir Kez Görünür Yapın.**"
